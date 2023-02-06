@@ -20,6 +20,7 @@ class EmulatorTest implements ITest {
         $this->signature();
         $emulator = new Emulator();
         $emulator->ls();
+        $emulator->copy();
 
     }
 }

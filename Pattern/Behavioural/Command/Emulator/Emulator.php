@@ -10,12 +10,17 @@ class Emulator {
         $command = $this->getCommand('ls');
         $command->execute();
     }
+    public function copy()
+    {
+        $command = $this->getCommand('copy');
+        $command->execute();
+    }
     protected function getCommand(string $str) {
         if (isset($this->commands[$str])) {
             return $this->commands[$str];
         } 
-        $holder = ucfirst($str).'Command';
-        $commands[$str] = new $holder();
+        $holder = __NAMESPACE__.'\\'.ucfirst($str).'Command';
+        $this->commands[$str] = new $holder();
         return $this->commands[$str];
     }
 }
