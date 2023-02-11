@@ -2,7 +2,9 @@
 namespace Kupman\Pattern\Structural\Proxy\Video;
 
 class YoutubeProxy implements IDownload {
-
+    /** @var IDownload $service description */
+    protected $service = null;
+    
     public function __construct(IDownload $service) {
         $this->service = $service;
     }
