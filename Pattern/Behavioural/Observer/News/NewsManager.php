@@ -1,10 +1,11 @@
 <?php
-namespace Kupmpan\Pattern\Behavioural\Observer\News;
+namespace Kupman\Pattern\Behavioural\Observer\News;
 
 class NewsManager {
 
     /** @var array $observers description */
     protected $observers = [];
+
     public function subscribe(string $email, string $news) {
         if (in_array($news, $this->news()))
             $this->addEmailToNews($email, $news);
@@ -26,7 +27,7 @@ class NewsManager {
             unset($this->observer[$news][$email]);
     }
     protected function sendEmailToNews(string $news, string $desc) {
-        foreach ($this->observer[$news] as $email)
+        foreach ($this->observer[$news] as $email=>$value)
             $this->send($email, $desc);
     }
     protected function send(string $email, string $desc) {

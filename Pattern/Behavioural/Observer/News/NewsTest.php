@@ -18,6 +18,11 @@ class NewsTest implements ITest {
      */
     public function run() {
         $this->signature();
+        $manager = new NewsManager();
+        $manager->subscribe("trankennykhang@hotmail.com", "it");
+
+        $manager->addNews("it", "test it news");
+
     
     }
 }
